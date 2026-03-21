@@ -1,3 +1,11 @@
+# v12.0.12
+## 21 Mar 2026 — 03:09:22 UTC
+
+### fix
+
++ __Metadata:__ BoxLang Prime metadata compatibility ([a057a91](https://github.com/coldbox-modules/quick/commit/a057a91edbdef4440f62c0e27cd1a65ed8bee198))
+
+
 # v12.0.11
 ## 21 Feb 2026 — 18:16:43 UTC
 
