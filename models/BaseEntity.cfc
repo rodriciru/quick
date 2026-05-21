@@ -616,12 +616,13 @@ component accessors="true" {
 			if ( !hasAttribute( key ) ) {
 				continue;
 			}
-			variables._data[ retrieveColumnForAlias( key ) ] = (
-				!arguments.attributes.keyExists( key ) || isNull( arguments.attributes[ key ] )
-			) ? javacast( "null", "" ) : castValueForGetter( key, arguments.attributes[ key ] );
-			variables[ retrieveAliasForColumn( key ) ] = (
-				!arguments.attributes.keyExists( key ) || isNull( arguments.attributes[ key ] )
-			) ? javacast( "null", "" ) : castValueForGetter( key, arguments.attributes[ key ] );
+
+			var value = isNull( arguments.attributes[ key ] )
+				? javacast( "null", "" )
+				: castValueForGetter( key, arguments.attributes[ key ] );
+
+			variables._data[ retrieveColumnForAlias( key ) ] = value;
+			variables[ retrieveAliasForColumn( key ) ] = value;
 		}
 	}
 
