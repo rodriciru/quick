@@ -617,9 +617,7 @@ component accessors="true" {
 				continue;
 			}
 
-			var value = isNull( arguments.attributes[ key ] )
-				? javacast( "null", "" )
-				: castValueForGetter( key, arguments.attributes[ key ] );
+			var value = castValueForGetter( key, arguments.attributes[ key ] );
 
 			variables._data[ retrieveColumnForAlias( key ) ] = value;
 			variables[ retrieveAliasForColumn( key ) ] = value;
@@ -3453,10 +3451,6 @@ component accessors="true" {
 		}
 
 		if ( !structKeyExists( variables._casts, arguments.key ) ) {
-			return arguments.value;
-		}
-
-		if ( !isVirtualAttribute( arguments.key ) && isNullValue( arguments.key, arguments.value ) ) {
 			return arguments.value;
 		}
 
